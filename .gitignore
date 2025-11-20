@@ -1,5 +1,4 @@
 /target
-/src/LOCAL_IP.txt
-/src/REMOTE_IP.txt
-/src/WIFI_PASSWORD.txt
-/src/WIFI_SSID.txt
+#/src/REMOTE_IP.txt
+#/src/WIFI_PASSWORD.txt
+#/src/WIFI_SSID.txt
