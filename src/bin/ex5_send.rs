@@ -33,16 +33,12 @@ bind_interrupts!(struct Irqs {
 
 #[embassy_executor::main]
 async fn main(spawner: Spawner) {
+    let p = embassy_rp::init(Default::default());
+    info!("started");
+
     const REMOTE_PORT: u16 = 47900;
     const LOCAL_PORT: u16 = 47901;
-    let remote_ip =
-        Ipv4Address::from_str(include_str!("../REMOTE_IP.txt")).expect("invalid remote ip address");
-
-    let p = embassy_rp::init(Default::default());
-
-    // wait for host to connect to usb serial port
-    Timer::after(Duration::from_millis(1000)).await;
-    info!("started");
+    let remote_ip = Ipv4Address::from_str("192.168.1.99").expect("invalid remote ip address");
 
     // setup spi bus for wifi modem
     let pwr = Output::new(p.PIN_23, Level::Low);

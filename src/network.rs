@@ -52,9 +52,8 @@ pub async fn setup_network(
 
     spawner.spawn(net_task(runner)).unwrap();
 
-    // make sure these files exist in your `src` folder
-    let wifi_ssid: &str = include_str!("./WIFI_SSID.txt");
-    let wifi_password: &str = include_str!("./WIFI_PASSWORD.txt");
+    let wifi_ssid = "rustlab";
+    let wifi_password = "rustycrab";
 
     info!("connecting to wifi network '{}'", wifi_ssid);
 
